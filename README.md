@@ -4,11 +4,11 @@
 
 1. Make the multiRequestComponent make 3 consecutive requests, 100ms apart.
 
-     - I created a private function setIntervalX inside a miltiRequest component that receives 3 parameters(callback,delay,repetitions)        
+     - I created a private function <ins>setIntervalX</ins> inside a miltiRequest component that receives 3 parameters(callback,delay,repetitions)        
 
 2. Each request should have an HTTP header `X-Request-Type` with value 'A', 'B', and 'C', in order.
    
-   - For each repetition, it's defined an header request that read the relative values from a dictionary:dictionaryRequest = ['A','B','C'];
+   - For each repetition, it's defined an header request that read the relative values from a dictionary: dictionaryRequest = ['A','B','C'];
 
 3. The API makes requests of type A wait a bit to simulate some computation.
 
@@ -39,7 +39,7 @@ and stays fixed after that to show how long it took to get the 3 results.
 
 9. Make the component a little nice showing off your mad CSS skills =)
 
-    - I used SASS with BEM, createing a responsive layout
+    - layout responsive, I used Sass and BEM
 
 Thank you
 Andrea
