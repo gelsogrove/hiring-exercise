@@ -1,0 +1,72 @@
+
+.app-multi-request {          
+    width:90vw;
+    margin: 2vw auto;    
+
+    &__header {        
+        font-size: 1.5rem;
+        padding:5px;
+        
+        &--right {
+           text-align: right;           
+           margin-top:-3.0vh;           
+        }
+
+        &--left {
+            text-align: left;
+        }
+
+        &--lastvalue {
+            color: red;
+        }
+
+        &--start {            
+            border:1px solid black;
+            width: 10vw;
+            padding:10px;
+            background-color: #dddddd;
+        }
+
+
+        &--startdisabled {            
+            border:1px solid #dddddd;
+            color: white;
+            width: 10vw;
+            padding:10px;
+            cursor:not-allowed;
+            background-color: #dddddd;
+        }
+    }
+       
+    &__boxes {
+        width:90vw;
+        height:50vh;
+        margin: 1.5vw auto;
+        font-size: 1.5rem;        
+        overflow: auto;
+        padding:10px;        
+        background-color: #eeeeee;        
+        
+
+        &--loading {
+            padding:9vh;
+            color:red;
+            font-size:22px;
+        }
+
+        &--box {            
+            padding:3.3vw;
+            display: inline-block;           
+            border:1px solid #cccccc;       
+            margin: 5px;
+        }
+        
+    }
+
+    &__footer {
+        &--right {
+            text-align: right;
+        }
+    }
+}
+ 

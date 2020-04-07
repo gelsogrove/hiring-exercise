@@ -1,0 +1,31 @@
+
+<div class="app-multi-request">    
+    <!-- HEADER -->
+    <div class="app-multi-request__header">
+            <div class="app-multi-request__header--left">
+                Last valued detected : 
+                <span  *ngIf="showdata" class="app-multi-request__header--lastvalue">{{ lastValue }}</span>
+                <span  *ngIf="!showdata" class="app-multi-request__header--lastvalue"> - </span>
+            </div>
+            <div class="app-multi-request__header--right">
+              <button [class.app-multi-request__header--startdisabled]="!showdata"  class="app-multi-request__header--start" (click)="fetchValue()"> START </button>              
+            </div>                                                   
+    </div>        
+
+    <div class="app-multi-request__boxes" >           
+        <div *ngIf="!showdata" class="app-multi-request__boxes--loading">Loading...</div>
+        <ng-container  *ngIf="showdata">          
+            <div *ngFor="let request of sortValues()" class="app-multi-request__boxes--box">{{ request }}</div>   
+        </ng-container>
+    </div>    
+    
+    <!-- FOOTER -->
+    <div class="app-multi-request__footer">        
+        <div class="app-multi-request__footer--right">          
+           <timer [active]="!showdata"></timer>
+        </div>                                                   
+    </div> 
+   
+<div>    
+ 
+
