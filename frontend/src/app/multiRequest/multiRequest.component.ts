@@ -56,7 +56,7 @@ export class MultiRequestComponent implements OnInit {
     }
 
     sortValues() {        
-        return this.requests.sort((a,b) =>  - b);
+        return this.requests.sort((a,b) =>  - b).reverse();
     }
 
 
