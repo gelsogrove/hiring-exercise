@@ -28,31 +28,35 @@ export class MultiRequestComponent implements OnInit {
     fetchValue(): void {                  
         this.showdata= false;
         
-        let dictionaryRequest = ['A','B','C']  
+        let dictionaryRequest = ['A','B','C'];          
         let i=0;        
         var promise;        
-            this.setIntervalX(() => {                             
-                promise = new Promise((resolve, reject) => {                
-                    this.http.get(this.backendUrl, { headers: new HttpHeaders({'X-Request-Type' : dictionaryRequest[i]}) })                     
-                    .pipe(takeUntil(this.unsubscribe$))
-                        .subscribe((result: ICounterDTO) => {                                         
-                            resolve(result.value);                      
-                            this.lastValue = result.value;
-                        });    
-                });   
-                promise.then((result: number) => {                    
-                    this.requests.push(result);                    
-                    if (this.requests.length % 3 == 0) {
-                        this.showdata= true;
-                    }
-                });
+        this.setIntervalX(() => {                             
 
-                i++;                        
-            }, 100, 3);                                               
+            var headers = { 
+                headers: new HttpHeaders({'X-Request-Type' : dictionaryRequest[i]})
+            }
+            promise = new Promise((resolve, reject) => {     
+                this.http.get(this.backendUrl, headers)                     
+                .pipe(takeUntil(this.unsubscribe$))
+                .subscribe((result: ICounterDTO) => {                                         
+                    resolve(result.value); //resolve promise
+                    this.lastValue = result.value;
+                });    
+            });   
+            promise.then((result: number) => {                    
+                this.requests.push(result);                    
+                if (this.requests.length % 3 == 0) {
+                    this.showdata= true;
+                }
+            });
+
+            i++;                        
+        }, 100, 3);  // delay, repetitions                                           
     }
 
     sortValues() {        
-        return this.requests.sort(function(a,b){return a - b});
+        return this.requests.sort((a,b) =>  - b);
     }
 
 
